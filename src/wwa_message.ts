@@ -421,46 +421,6 @@ module wwa_message {
             this._wwa.playSound( id );
         } 
 
-        private _executeHideHpMacro(): void {
-          this._concatEmptyArgs(1);
-          var flag = !!this._parseInt(0);
-          if (flag) {
-            wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "none";
-          } else {
-            wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "block";
-          }
-        }
-				
-        private _executeHideAtMacro(): void {
-          this._concatEmptyArgs(1);
-          var flag = !!this._parseInt(0);
-          if (flag) {
-            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "none";
-          } else {
-            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "block";
-          }
-        }
-
-        private _executeHideDfMacro(): void {
-          this._concatEmptyArgs(1);
-          var flag = !!this._parseInt(0);
-          if (flag) {
-            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "none";
-          } else {
-            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "block";
-          }
-        }
-
-        private _executeHideGdMacro(): void {
-          this._concatEmptyArgs(1);
-          var flag = !!this._parseInt(0);
-          if (flag) {
-            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "none";
-          } else {
-            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "block";
-          }
-        }
-
         private _executeHideStatusMacro(statusName : string): void {
           this._concatEmptyArgs(1);
           var flag = !!this._parseInt(0);
