@@ -415,10 +415,10 @@ module wwa_data {
         COLOR = 21,
         WAIT = 22,
         SOUND = 23,
-        HIDE_HP = 22,
-        HIDE_AT = 24,
-        HIDE_DF = 25,
-        HIDE_GD = 26
+        HIDE_HP = 24,
+        HIDE_AT = 25,
+        HIDE_DF = 26,
+        HIDE_GD = 27
     }
 
     export var macrotable = {

@@ -79,13 +79,13 @@ module wwa_message {
                 } else if (this.macroType === wwa_data.MacroType.SOUND) {
                     this._executeSoundMacro();
                 } else if (this.macroType === wwa_data.MacroType.HIDE_HP) {
-                		this._executeHideHpMacro();
+                		this._executeHideStatusMacro("energy");
                 } else if (this.macroType === wwa_data.MacroType.HIDE_AT) {
-                    this._executeHideAtMacro();
+                    this._executeHideStatusMacro("strength");
                 } else if (this.macroType === wwa_data.MacroType.HIDE_DF) {
-                    this._executeHideDfMacro();
+                    this._executeHideStatusMacro("defence");
                 } else if (this.macroType === wwa_data.MacroType.HIDE_GD) {
-                    this._executeHideGdMacro();
+                    this._executeHideStatusMacro("gold");
                 }
 
             } catch (e) {
@@ -459,6 +459,12 @@ module wwa_message {
           } else {
             wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "block";
           }
+        }
+
+        private _executeHideStatusMacro(statusName : string): void {
+          this._concatEmptyArgs(1);
+          var flag = !!this._parseInt(0);
+          wwa_util.$qsh("#disp-" + statusName + ">.status-value-box").style.display = flag ? "none" : "block";
         }
     }
 

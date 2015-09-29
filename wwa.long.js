@@ -236,11 +236,10 @@ var wwa_input;
     wwa_input.MouseStore = MouseStore;
 })(wwa_input || (wwa_input = {}));
 /// <reference path="./wwa_main.ts" />
-var __extends = this.__extends || function (d, b) {
+var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var wwa_data;
 (function (wwa_data) {
@@ -608,6 +607,10 @@ var wwa_data;
         MacroType[MacroType["COLOR"] = 21] = "COLOR";
         MacroType[MacroType["WAIT"] = 22] = "WAIT";
         MacroType[MacroType["SOUND"] = 23] = "SOUND";
+        MacroType[MacroType["HIDE_HP"] = 24] = "HIDE_HP";
+        MacroType[MacroType["HIDE_AT"] = 25] = "HIDE_AT";
+        MacroType[MacroType["HIDE_DF"] = 26] = "HIDE_DF";
+        MacroType[MacroType["HIDE_GD"] = 27] = "HIDE_GD";
     })(wwa_data.MacroType || (wwa_data.MacroType = {}));
     var MacroType = wwa_data.MacroType;
     wwa_data.macrotable = {
@@ -634,7 +637,11 @@ var wwa_data;
         "$effitem": 20,
         "$color": 21,
         "$wait": 22,
-        "$sound": 23
+        "$sound": 23,
+        "$hide_hp": 24,
+        "$hide_at": 25,
+        "$hide_df": 26,
+        "$hide_gd": 27
     };
     (function (MacroStatusIndex) {
         MacroStatusIndex[MacroStatusIndex["ENERGY"] = 0] = "ENERGY";
@@ -2063,6 +2070,18 @@ var wwa_message;
                 else if (this.macroType === wwa_data.MacroType.SOUND) {
                     this._executeSoundMacro();
                 }
+                else if (this.macroType === wwa_data.MacroType.HIDE_HP) {
+                    this._executeHideStatusMacro("energy");
+                }
+                else if (this.macroType === wwa_data.MacroType.HIDE_AT) {
+                    this._executeHideStatusMacro("strength");
+                }
+                else if (this.macroType === wwa_data.MacroType.HIDE_DF) {
+                    this._executeHideStatusMacro("defence");
+                }
+                else if (this.macroType === wwa_data.MacroType.HIDE_GD) {
+                    this._executeHideStatusMacro("gold");
+                }
             }
             catch (e) {
             }
@@ -2368,11 +2387,56 @@ var wwa_message;
             var id = parseInt(this.macroArgs[0]);
             this._wwa.playSound(id);
         };
+        Macro.prototype._executeHideHpMacro = function () {
+            this._concatEmptyArgs(1);
+            var flag = !!this._parseInt(0);
+            if (flag) {
+                wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "none";
+            }
+            else {
+                wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "block";
+            }
+        };
+        Macro.prototype._executeHideAtMacro = function () {
+            this._concatEmptyArgs(1);
+            var flag = !!this._parseInt(0);
+            if (flag) {
+                wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "none";
+            }
+            else {
+                wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "block";
+            }
+        };
+        Macro.prototype._executeHideDfMacro = function () {
+            this._concatEmptyArgs(1);
+            var flag = !!this._parseInt(0);
+            if (flag) {
+                wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "none";
+            }
+            else {
+                wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "block";
+            }
+        };
+        Macro.prototype._executeHideGdMacro = function () {
+            this._concatEmptyArgs(1);
+            var flag = !!this._parseInt(0);
+            if (flag) {
+                wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "none";
+            }
+            else {
+                wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "block";
+            }
+        };
+        Macro.prototype._executeHideStatusMacro = function (statusName) {
+            this._concatEmptyArgs(1);
+            var flag = !!this._parseInt(0);
+            wwa_util.$qsh("#disp-" + statusName + ">.status-value-box").style.display = flag ? "none" : "block";
+        };
         return Macro;
     })();
     wwa_message.Macro = Macro;
     function parseMacro(wwa, partsID, partsType, position, macroStr) {
-        var matchInfo = macroStr.match(/^\$([a-zA-Z_][a-zA-Z0-9_]*)\=(.*)$/);
+        var matchInfo = macroStr.match(/^\$([a-zA-Z_][a-zA-Z0-9_<+\-*/%:]*)\=(.*)$/);
         if (matchInfo === null || matchInfo.length !== 3) {
             throw new Error("マクロではありません");
         }
