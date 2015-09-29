@@ -415,10 +415,10 @@ module wwa_data {
         COLOR = 21,
         WAIT = 22,
         SOUND = 23,
-				HIDE_HP = 24,
-				HIDE_AT = 25,
-				HIDE_DF = 26,
-				HIDE_GD = 27
+        HIDE_HP = 22,
+        HIDE_AT = 24,
+        HIDE_DF = 25,
+        HIDE_GD = 26
     }
 
     export var macrotable = {
@@ -446,10 +446,10 @@ module wwa_data {
         "$color"     : 21,
         "$wait"      : 22,
         "$sound"     : 23,
-				"$hide_hp"   : 24,
-				"$hide_at"   : 25,
-				"$hide_df"   : 26,
-				"$hide_gd"   : 27
+        "$hide_hp"   : 24,
+        "$hide_at"   : 25,
+        "$hide_df"   : 26,
+        "$hide_gd"   : 27
     }
 
     export enum MacroStatusIndex {
