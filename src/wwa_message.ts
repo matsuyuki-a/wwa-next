@@ -78,7 +78,15 @@ module wwa_message {
                     this._executeWaitMacro();
                 } else if (this.macroType === wwa_data.MacroType.SOUND) {
                     this._executeSoundMacro();
-                }
+								} else if (this.macroType === wwa_data.MacroType.HIDE_HP) {
+										this._executeHideHpMacro();
+								} else if (this.macroType === wwa_data.MacroType.HIDE_AT) {
+								    this._executeHideAtMacro();
+								} else if (this.macroType === wwa_data.MacroType.HIDE_DF) {
+								    this._executeHideDfMacro();
+								} else if (this.macroType === wwa_data.MacroType.HIDE_GD) {
+								    this._executeHideGdMacro();
+								}
 
             } catch (e) {
                 // デベロッパーモードならエラーを吐くとかしたいね
@@ -411,6 +419,46 @@ module wwa_message {
             this._concatEmptyArgs(1);
             var id = parseInt(this.macroArgs[0]);
             this._wwa.playSound( id );
+        } 
+
+				private _executeHideHpMacro(): void {
+					this._concatEmptyArgs(1);
+					var flag = !!this._parseInt(0);
+					if (flag) {
+						wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "none";
+					} else {
+						wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "block";
+					}
+				}
+				
+				private _executeHideAtMacro(): void {
+					this._concatEmptyArgs(1);
+          var flag = !!this._parseInt(0);
+          if (flag) {
+            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "none";
+          } else {
+            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "block";
+          }
+        }
+
+				private _executeHideDfMacro(): void {
+					this._concatEmptyArgs(1);
+          var flag = !!this._parseInt(0);
+          if (flag) {
+            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "none";
+          } else {
+            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "block";
+          }
+        }
+
+				private _executeHideGdMacro(): void {
+					this._concatEmptyArgs(1);
+          var flag = !!this._parseInt(0);
+          if (flag) {
+            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "none";
+          } else {
+            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "block";
+          }
         }
     }
 
@@ -422,7 +470,7 @@ module wwa_message {
         macroStr: string
         ): Macro {
 
-        var matchInfo = macroStr.match(/^\$([a-zA-Z_][a-zA-Z0-9_]*)\=(.*)$/);
+        var matchInfo = macroStr.match(/^\$([a-zA-Z_][a-zA-Z0-9_<+\-*/%:]*)\=(.*)$/);
         if (matchInfo === null || matchInfo.length !== 3) {
             throw new Error("マクロではありません");
         }
