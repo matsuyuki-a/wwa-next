@@ -785,6 +785,12 @@ module wwa_data {
         checkOriginalMapString: string = void 0;
         checkString: string = void 0;
 
+		// for WWAX
+		isHiddenHP : boolean = void 0;
+		isHiddenAT : boolean = void 0;
+		isHiddenDF : boolean = void 0;
+		isHiddenGD : boolean = void 0;
+
         constructor() { }
     }
 }

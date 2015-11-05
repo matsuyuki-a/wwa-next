@@ -2722,37 +2722,60 @@ module wwa_main {
                 }
                 console.log("Valid Password!");
             }
+            
+            if (restart) {
+                this._wwaxApplyRestart();
+            }
 
             if( apply ) {
                 this._applyQuickLoad( newData );
             }
             return newData;
         }
+        
+        private _wwaxApplyRestart(): void {
+            wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "block";
+            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "block";
+            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "block";
+            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "block";
+        }
 
         private _applyQuickLoad( newData: wwa_data.WWAData): void {
-                this._player.setEnergyMax(newData.statusEnergyMax);
-                this._player.setEnergy(newData.statusEnergy);
-                this._player.setStrength(newData.statusStrength);
-                this._player.setDefence(newData.statusDefence);
-                this._player.setGold(newData.statusGold);
-                this._player.setMoveCount(newData.moves);
-                this._player.clearItemBox();
-                for (var i = 0; i < newData.itemBox.length; i++) {
-                    this._player.addItem(newData.itemBox[ i ], i + 1, true);
-                }
+            this._player.setEnergyMax(newData.statusEnergyMax);
+            this._player.setEnergy(newData.statusEnergy);
+            this._player.setStrength(newData.statusStrength);
+            this._player.setDefence(newData.statusDefence);
+            this._player.setGold(newData.statusGold);
+            this._player.setMoveCount(newData.moves);
+            this._player.clearItemBox();
+            for (var i = 0; i < newData.itemBox.length; i++) {
+                this._player.addItem(newData.itemBox[ i ], i + 1, true);
+            }
 
-                this._player.systemJumpTo(new wwa_data.Position(this, newData.playerX, newData.playerY, 0, 0));
-                if (newData.bgm === 0) {
-                    this.playSound(wwa_data.SystemSound.NO_SOUND);
-                } else {
-                    this.playSound(newData.bgm);
-                }
-                this.setImgClick(new Coord(newData.imgClickX, newData.imgClickY));
-                if (this.getObjectIdByPosition(this._player.getPosition()) !== 0) {
-                    this._player.setPartsAppearedFlag();
-                }
-                this._wwaData = newData;
-                this.updateCSSRule();
+            this._player.systemJumpTo(new wwa_data.Position(this, newData.playerX, newData.playerY, 0, 0));
+            if (newData.bgm === 0) {
+                this.playSound(wwa_data.SystemSound.NO_SOUND);
+            } else {
+                this.playSound(newData.bgm);
+            }
+            this.setImgClick(new Coord(newData.imgClickX, newData.imgClickY));
+            if (this.getObjectIdByPosition(this._player.getPosition()) !== 0) {
+                this._player.setPartsAppearedFlag();
+            }
+            
+			// for WWAX
+            this._wwaxApplyQuickLoad();
+			
+            this._wwaData = newData;
+            this.updateCSSRule();
+        }
+        
+        private _wwaxApplyQuickLoad(): void {
+            // ステータス非表示系マクロの状態復元
+            wwa_util.$qsh("#disp-energy>.status-value-box").style.display = this._wwaData.isHiddenHP ? "none" : "block";
+            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = this._wwaData.isHiddenAT ? "none" : "block";
+            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = this._wwaData.isHiddenDF ? "none" : "block";
+            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = this._wwaData.isHiddenGD ? "none" : "block";
         }
 
         private _restartGame(): void {
@@ -3505,6 +3528,22 @@ module wwa_main {
 
         public isConsoleOutputMode(): boolean {
             return this._useConsole;
+        }
+
+		public setIsDisplayHP(flag: boolean): void {
+            this._wwaData.isHiddenHP = flag;
+		}
+        
+        public setIsDisplayAT(flag: boolean): void {
+            this._wwaData.isHiddenAT = flag;
+        }
+        
+        public setIsDisplayDF(flag: boolean): void {
+            this._wwaData.isHiddenDF = flag;
+        }
+        
+        public setIsDisplayGD(flag: boolean): void {
+            this._wwaData.isHiddenGD = flag;
         }
     };
 

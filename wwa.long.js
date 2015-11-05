@@ -918,6 +918,11 @@ var wwa_data;
             this.statusColorB = void 0;
             this.checkOriginalMapString = void 0;
             this.checkString = void 0;
+            // for WWAX
+            this.isHiddenHP = void 0;
+            this.isHiddenAT = void 0;
+            this.isHiddenDF = void 0;
+            this.isHiddenGD = void 0;
         }
         return WWAData;
     })();
@@ -2390,6 +2395,20 @@ var wwa_message;
         Macro.prototype._executeHideStatusMacro = function (statusName) {
             this._concatEmptyArgs(1);
             var flag = !!this._parseInt(0);
+            switch (statusName) {
+                case "energy":
+                    this._wwa.setIsDisplayHP(flag);
+                    break;
+                case "strength":
+                    this._wwa.setIsDisplayAT(flag);
+                    break;
+                case "defence":
+                    this._wwa.setIsDisplayDF(flag);
+                    break;
+                case "gold":
+                    this._wwa.setIsDisplayGD(flag);
+                    break;
+            }
             wwa_util.$qsh("#disp-" + statusName + ">.status-value-box").style.display = flag ? "none" : "block";
         };
         return Macro;
@@ -5674,10 +5693,19 @@ var wwa_main;
                 }
                 console.log("Valid Password!");
             }
+            if (restart) {
+                this._wwaxApplyRestart();
+            }
             if (apply) {
                 this._applyQuickLoad(newData);
             }
             return newData;
+        };
+        WWA.prototype._wwaxApplyRestart = function () {
+            wwa_util.$qsh("#disp-energy>.status-value-box").style.display = "block";
+            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = "block";
+            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = "block";
+            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = "block";
         };
         WWA.prototype._applyQuickLoad = function (newData) {
             this._player.setEnergyMax(newData.statusEnergyMax);
@@ -5701,8 +5729,17 @@ var wwa_main;
             if (this.getObjectIdByPosition(this._player.getPosition()) !== 0) {
                 this._player.setPartsAppearedFlag();
             }
+            // for WWAX
+            this._wwaxApplyQuickLoad();
             this._wwaData = newData;
             this.updateCSSRule();
+        };
+        WWA.prototype._wwaxApplyQuickLoad = function () {
+            // ステータス非表示系マクロの状態復元
+            wwa_util.$qsh("#disp-energy>.status-value-box").style.display = this._wwaData.isHiddenHP ? "none" : "block";
+            wwa_util.$qsh("#disp-strength>.status-value-box").style.display = this._wwaData.isHiddenAT ? "none" : "block";
+            wwa_util.$qsh("#disp-defence>.status-value-box").style.display = this._wwaData.isHiddenDF ? "none" : "block";
+            wwa_util.$qsh("#disp-gold>.status-value-box").style.display = this._wwaData.isHiddenGD ? "none" : "block";
         };
         WWA.prototype._restartGame = function () {
             this._quickLoad(true);
@@ -6347,6 +6384,18 @@ var wwa_main;
         WWA.prototype.isConsoleOutputMode = function () {
             return this._useConsole;
         };
+        WWA.prototype.setIsDisplayHP = function (flag) {
+            this._wwaData.isHiddenHP = flag;
+        };
+        WWA.prototype.setIsDisplayAT = function (flag) {
+            this._wwaData.isHiddenAT = flag;
+        };
+        WWA.prototype.setIsDisplayDF = function (flag) {
+            this._wwaData.isHiddenDF = flag;
+        };
+        WWA.prototype.setIsDisplayGD = function (flag) {
+            this._wwaData.isHiddenGD = flag;
+        };
         return WWA;
     })();
     wwa_main.WWA = WWA;
@@ -6389,4 +6438,5 @@ var wwa_main;
         window.addEventListener("load", start);
     }
 })(wwa_main || (wwa_main = {}));
-//# sourceMappingURL=wwa.long.js.tmp.map\n
+//# sourceMappingURL=wwa.long.js.tmp.map
+

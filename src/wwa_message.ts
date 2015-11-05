@@ -424,6 +424,20 @@ module wwa_message {
         private _executeHideStatusMacro(statusName : string): void {
           this._concatEmptyArgs(1);
           var flag = !!this._parseInt(0);
+          switch (statusName) {
+              case "energy":
+                this._wwa.setIsDisplayHP(flag);
+                break;
+              case "strength":
+                this._wwa.setIsDisplayAT(flag);
+                break;
+              case "defence":
+                this._wwa.setIsDisplayDF(flag);
+                break;
+              case "gold":
+                this._wwa.setIsDisplayGD(flag);
+                break;
+          }
           wwa_util.$qsh("#disp-" + statusName + ">.status-value-box").style.display = flag ? "none" : "block";
         }
     }
