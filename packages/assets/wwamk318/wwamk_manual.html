@@ -17,11 +17,33 @@
       background-color: #ffc0c0;
       color: #505050;
     }
-    section {
+    .main-section,
+    .sub-section {
+      margin: 0 auto;
+    }
+    .main-section {
+      width: 580px;
+    }
+    .sub-section {
+      width: 440px;
+    }
+    .sub-section article {
       background-color: #ffffc0;
     }
-    section h2 {
+    .sub-section article p {
+      margin: 0 0 1rem;
+    }
+    h2 {
+      background-color: #ffc0c0;
+      text-align: center;
+    }
+    h3 {
       background-color: #c0ffc0;
+      margin: .125rem;
+      text-align: center;
+    }
+    footer {
+      font-size: .8rem;
     }
   </style>
 </head>
@@ -30,139 +52,182 @@
     <h1>World Wide Adventure Wing</h1>
     <h2>マップ作成ツール Ver3.1.8</h2>
   </header>
-  <section>
-    <h2>はじめに</h2>
-    <p>このソフトウェアは、インターネット指向型ロールプレイングゲーム「World Wide Adventure」のマップ作成ツールです。</p>
-    <p>このツールでオリジナルのＷＷＡワールドを作成することができます。</p>
-    <p>作成したＷＷＡワールドは、自由にホームページに組み込むことができ、他のＷＷＡワールドとリンクすることによって、１つのワールドにすることができます。</p>
-    <p>本作成ツールは、ＷＷＡ公式であるキャラバンサークルで配布されている作成ツールに、WWA Wing Teamが独自の改良を加えたものです。</p>
+  <section class="sub-section">
+    <h3>はじめに</h3>
+    <article>
+      <p>このソフトウェアは、インターネット指向型ロールプレイングゲーム「World Wide Adventure」のマップ作成ツールです。</p>
+      <p>このツールでオリジナルのＷＷＡワールドを作成することができます。</p>
+      <p>作成したＷＷＡワールドは、自由にホームページに組み込むことができ、他のＷＷＡワールドとリンクすることによって、１つのワールドにすることができます。</p>
+      <p>本作成ツールは、ＷＷＡ公式であるキャラバンサークルで配布されている作成ツールに、WWA Wing Teamが独自の改良を加えたものです。</p>
+    </article>
   </section>
-  <section>
-    <h2>動作環境、起動方法</h2>
-    <p>Windows 7,8.1,10に対応しています。</p>
-    <p><strong>ツールの起動はフォルダ内の「WinWwaWingmk」（アプリケーションファイル）を実行してください。</strong></p>
-    <p>フォルダ内または「mapdata」フォルダ内の標準設定のマップ「wwamap.dat」が自動的に読み込まれてツールが起動します。</p>
-    <p>この拡張子（種類）「dat」のファイルをツールに関連付けしておけば、マップデータをダブルクリックして直接起動することもできます（詳細は「よくある質問」を参照）</p>
+  <section class="sub-section">
+    <h3>動作環境、起動方法</h3>
+    <article>
+      <p>Windows 7,8.1,10に対応しています。</p>
+      <p><strong>ツールの起動はフォルダ内の「WinWwaWingmk」（アプリケーションファイル）を実行してください。</strong></p>
+      <p>フォルダ内または「mapdata」フォルダ内の標準設定のマップ「wwamap.dat」が自動的に読み込まれてツールが起動します。</p>
+      <p>この拡張子（種類）「dat」のファイルをツールに関連付けしておけば、マップデータをダブルクリックして直接起動することもできます（詳細は「よくある質問」を参照）</p>
+    </article>
   </section>
-  <section>
+  <section class="main-section">
     <h2>WWA作成ツール使用方法</h2>
-    <section>
+    <section class="sub-section">
       <h3>WWAマップの作成方法について</h3>
-      <p>マップ作成に関する細かい説明は、このマニュアルでは省いています。作成ツールを起動すると、最初にサンプルのマップが読み込まれます。このサンプルマップを見ているうちに、ツールの使い方が理解できるようになっています。
-      <p>ブラウザでサンプルマップをひととおり見て回ったあと、作成ツールを起動して、このサンプルマップの内容をいろいろ書きかえてみてください。しだいにツールの使い方が解かってくるはずです。</p>
+      <article>
+        <p>マップ作成に関する細かい説明は、このマニュアルでは省いています。作成ツールを起動すると、最初にサンプルのマップが読み込まれます。このサンプルマップを見ているうちに、ツールの使い方が理解できるようになっています。
+        <p>ブラウザでサンプルマップをひととおり見て回ったあと、作成ツールを起動して、このサンプルマップの内容をいろいろ書きかえてみてください。しだいにツールの使い方が解かってくるはずです。</p>
+      </article>
     </section>
-    <section>
+    <section class="sub-section">
       <h3>ホームページへの組み込み方</h3>
-      <p>詳細は、<a href="../manual.html">WWA Wing簡易マニュアル</a>をご覧下さい。</p>
-      <p>もしケーブダンジョンをホームページに組み込みたければ、<strong>「caves01.html」「wwa.js」「wwaload.js」「cover.gif」「wwa.css」「style.css」「caves01.dat」「caves01.gif」</strong>の８つのファイルとフォルダ「audio」を同じフォルダにアップロードして「caves01.html」にリンクすればよいです。</p>
+      <article>
+        <p>詳細は、<a href="../manual.html">WWA Wing簡易マニュアル</a>をご覧下さい。</p>
+        <p>もしケーブダンジョンをホームページに組み込みたければ、<strong>「caves01.html」「wwa.js」「wwaload.js」「cover.gif」「wwa.css」「style.css」「caves01.dat」「caves01.gif」</strong>の８つのファイルとフォルダ「audio」を同じフォルダにアップロードして「caves01.html」にリンクすればよいです。</p>
+      </article>
     </section>
   </section>
-  <section>
+  <section class="main-section">
     <h2>システム関連</h2>
-    <section>
+    <section class="sub-section">
       <h3>戦闘システムについて</h3>
-      <p>戦闘はプレーヤー、モンスター、プレーヤー、モンスター、・・・の順で交互に攻撃し、先に生命力が０になった方の負けです。ＷＷＡのシステムでは、戦闘で受けるダメージはランダムでは決まらず、同じ条件で戦えば必ず同じ結果がでるようになっています。</p>
-      <p>戦闘時の計算方法は、以下のようになっています。</p>
-      <ul>
-        <li>１回の攻撃でモンスターに与えられるダメージ　 ＝　プレーヤーの攻撃力　－　モンスターの防御力</li>
-        <li>１回の攻撃でプレーヤーが受けるダメージ　＝　モンスターの攻撃力　－　プレーヤーの防御力</li>
-      </ul>
-      <p>これから何回の攻撃でモンスターが倒せて、どれだけのダメージを受けるのか計算することが出来ます。また自分の攻撃力以上の防御力を持った敵は攻撃できないことになります。</p>
-      <p>戦闘結果は作成ツールメニューの「編集→戦闘結果の計算」で調べることができます。</p>
+      <article>
+        <p>戦闘はプレーヤー、モンスター、プレーヤー、モンスター、・・・の順で交互に攻撃し、先に生命力が０になった方の負けです。ＷＷＡのシステムでは、戦闘で受けるダメージはランダムでは決まらず、同じ条件で戦えば必ず同じ結果がでるようになっています。</p>
+        <p>戦闘時の計算方法は、以下のようになっています。</p>
+        <ul>
+          <li>１回の攻撃でモンスターに与えられるダメージ　 ＝　プレーヤーの攻撃力　－　モンスターの防御力</li>
+          <li>１回の攻撃でプレーヤーが受けるダメージ　＝　モンスターの攻撃力　－　プレーヤーの防御力</li>
+        </ul>
+        <p>これから何回の攻撃でモンスターが倒せて、どれだけのダメージを受けるのか計算することが出来ます。また自分の攻撃力以上の防御力を持った敵は攻撃できないことになります。</p>
+        <p>戦闘結果は作成ツールメニューの「編集→戦闘結果の計算」で調べることができます。</p>
+      </article>
     </section>
-    <section>
+    <section class="sub-section">
       <h3>効果音について</h3>
-      <p>ＷＷＡで使用するMP3形式の効果音ファイルを作成するには、MP3形式に対応した効果音編集ツールを使用するか、WAV形式のデータをMP3形式に変換するツールを使用する方法があります。</p>
-      <p>効果音ファイルは、すべて「10.mp3」のように、効果音番号＋拡張子「mp3」というファイル名にします。効果音が鳴るタイミングは、メッセージパーツならそのパーツに話しかけた時、モンスターならそのモンスターを倒した時と、それぞれ異なります。</p>
-      <p>現在の効果音システム予約は、１番「1.mp3」のボタンのクリック音と３番「3.mp3」の戦闘時の攻撃音です。</p>
+      <article>
+        <p>ＷＷＡで使用するMP3形式の効果音ファイルを作成するには、MP3形式に対応した効果音編集ツールを使用するか、WAV形式のデータをMP3形式に変換するツールを使用する方法があります。</p>
+        <p>効果音ファイルは、すべて「10.mp3」のように、効果音番号＋拡張子「mp3」というファイル名にします。効果音が鳴るタイミングは、メッセージパーツならそのパーツに話しかけた時、モンスターならそのモンスターを倒した時と、それぞれ異なります。</p>
+        <p>現在の効果音システム予約は、１番「1.mp3」のボタンのクリック音と３番「3.mp3」の戦闘時の攻撃音です。</p>
+      </article>
     </section>
-    <section>
+    <section class="sub-section">
       <h3>各種上限について</h3>
-      <ul>
-        <li><strong>マップサイズの最大値</strong>　１００１×１００１（１００×１００画面分）</li>
-        <li><strong>背景、および物体パーツの最大値</strong>　各４０００パーツ</li>
-        <li><strong>メッセージ最大作成数</strong>　５０００</li>
-        <li><strong>マップデータファイル最大サイズ</strong>　６メガバイト</li>
-        <li><strong>１メッセージの最大文字数</strong>　全角７５０文字</li>
-      </ul>
+      <article>
+        <ul>
+          <li><strong>マップサイズの最大値</strong>　１００１×１００１（１００×１００画面分）</li>
+          <li><strong>背景、および物体パーツの最大値</strong>　各４０００パーツ</li>
+          <li><strong>メッセージ最大作成数</strong>　５０００</li>
+          <li><strong>マップデータファイル最大サイズ</strong>　６メガバイト</li>
+          <li><strong>１メッセージの最大文字数</strong>　全角７５０文字</li>
+        </ul>
+      </article>
     </section>
   </section>
-  <section>
+  <section class="main-section">
     <h2>ツール操作関連</h2>
-    <p>作成ツールでは、マウスでほとんどの操作をすることができますが、ショートカットキーを併用すると操作が効率的になります。</p>
-    <section>
-      <h3>メインウィンドウ</h3>
-      <TABLE BORDER=0 WIDTH=440>
-      <TR><TH BGCOLOR=#C0FFC0 WIDTH=140>カーソルキー</TH><TD BGCOLOR=#FFFFC0>マップ画面のスクロール</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0>F1キー</TH><TD BGCOLOR=#FFFFC0>背景設置モード</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0>F2キー</TH><TD BGCOLOR=#FFFFC0>物体設置モード</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0>F3キー</TH><TD BGCOLOR=#FFFFC0>背景編集モード</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0>F4キー</TH><TD BGCOLOR=#FFFFC0>物体編集モード</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0>F5キー</TH><TD BGCOLOR=#FFFFC0>物体消去モード</TD></TR>
+    <section class="sub-section">
+      <h3>キーボード操作</h3>
+      <article>
+        <p>作成ツールでは、マウスでほとんどの操作をすることができますが、ショートカットキーを併用すると操作が効率的になります。</p>
+      </article>
+      <section class="sub-section">
+        <h3>メインウィンドウ</h3>
+        <article>
+          <TABLE BORDER=0 WIDTH=440>
+          <TR><TH BGCOLOR=#C0FFC0 WIDTH=140>カーソルキー</TH><TD BGCOLOR=#FFFFC0>マップ画面のスクロール</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0>F1キー</TH><TD BGCOLOR=#FFFFC0>背景設置モード</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0>F2キー</TH><TD BGCOLOR=#FFFFC0>物体設置モード</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0>F3キー</TH><TD BGCOLOR=#FFFFC0>背景編集モード</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0>F4キー</TH><TD BGCOLOR=#FFFFC0>物体編集モード</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0>F5キー</TH><TD BGCOLOR=#FFFFC0>物体消去モード</TD></TR>
+          </TABLE>
+        </article>
+      </section>
+      <section class="sub-section">
+        <h3>背景＆物体パーツ選択ウィンドウ</h3>
+        <article>
+          <TABLE BORDER=0 WIDTH=440>
+          <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>SHIFT+カーソルキー</TH><TD BGCOLOR=#FFFFC0>パーツ選択画面のスクロール</TD></TR>
+          </TABLE>
+        </article>
+      </section>
+      <section class="sub-section">
+        <h3>パーツ編集ウィンドウ</h3>
+        <article>
+          <TABLE BORDER=0 WIDTH=440>
+          <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>TABキー</TH><TD BGCOLOR=#FFFFC0>次のボックスに移動</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>エンターキー</TH><TD BGCOLOR=#FFFFC0>決定</TD></TR>
+          </TABLE>
+        </article>
+      </section>
+      <section class="sub-section">
+        <h3>パーツ出現設定ウィンドウ</h3>
+        <article>
+          <TABLE BORDER=0 WIDTH=440>
+          <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>SHIFT+カーソルキー</TH><TD BGCOLOR=#FFFFC0>エディットボックスのフォーカス移動</TD></TR>
+          <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>TABキー</TH><TD BGCOLOR=#FFFFC0>次のボックスに移動</TD></TR>
+          </TABLE>
+        </article>
+      </section>
     </section>
-    <section>
-      <h3>背景＆物体パーツ選択ウィンドウ</h3>
-      <TABLE BORDER=0 WIDTH=440>
-      <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>SHIFT+カーソルキー</TH><TD BGCOLOR=#FFFFC0>パーツ選択画面のスクロール</TD></TR>
-      </TABLE>
-    </section>
-    <section>
-      <h3>パーツ編集ウィンドウ</h3>
-      <TABLE BORDER=0 WIDTH=440>
-      <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>TABキー</TH><TD BGCOLOR=#FFFFC0>次のボックスに移動</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>エンターキー</TH><TD BGCOLOR=#FFFFC0>決定</TD></TR>
-      </TABLE>
-    </section>
-    <section>
-      <h3>パーツ出現設定ウィンドウ</h3>
-      <TABLE BORDER=0 WIDTH=440>
-      <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>SHIFT+カーソルキー</TH><TD BGCOLOR=#FFFFC0>エディットボックスのフォーカス移動</TD></TR>
-      <TR><TH BGCOLOR=#C0FFC0 WIDTH=180>TABキー</TH><TD BGCOLOR=#FFFFC0>次のボックスに移動</TD></TR>
-      </TABLE>
-    </section>
-    <section>
+    <section class="sub-section">
       <h3>パーツをまとめて置きたい場合</h3>
-      <p>背景パーツを１個１個、マップに置いていくのは大変です。マップ画面でマウスをクリック＆ドラッグするとパーツをまとめて設置することができます。</p>
+      <article>
+        <p>背景パーツを１個１個、マップに置いていくのは大変です。マップ画面でマウスをクリック＆ドラッグするとパーツをまとめて設置することができます。</p>
+      </article>
     </section>
-    <section>
+    <section class="sub-section">
       <h3>右クリックの機能</h3>
-      <p>マップに置かれている背景や物体パーツを調べたり編集したりするときは、いちいち編集モードを背景＆物体編集に切り換えてマップ上のパーツを左クリックするよりも、そのパーツを右クリックするほうが楽です。</p>
-      <p>クリックした場所に物体パーツが置かれていれば物体パーツが、それ以外の場所では、背景パーツが自動的に選択され、編集ウィンドウが開きます。このとき同時に編集モードがパーツ設置モードに切り換わりますので、右クリックでそのパーツを選択して左クリックでマップに設置、というパターンを覚えておくと、マップへのパーツ設置作業が楽になります。</p>
+      <article>
+        <p>マップに置かれている背景や物体パーツを調べたり編集したりするときは、いちいち編集モードを背景＆物体編集に切り換えてマップ上のパーツを左クリックするよりも、そのパーツを右クリックするほうが楽です。</p>
+        <p>クリックした場所に物体パーツが置かれていれば物体パーツが、それ以外の場所では、背景パーツが自動的に選択され、編集ウィンドウが開きます。このとき同時に編集モードがパーツ設置モードに切り換わりますので、右クリックでそのパーツを選択して左クリックでマップに設置、というパターンを覚えておくと、マップへのパーツ設置作業が楽になります。</p>
+      </article>
     </section>
-    <section>
+    <section class="sub-section">
       <h3>設定ファイルについて</h3>
-      <p>実行ファイル WinWwaWingmk.exe のあるディレクトリに WinWwamk.ini が配置されています。設定ファイルから作成ツールの設定を読み取ることができます。</p>
-      <p>詳しくは設定ファイルをご参照ください。</p>
+      <article>
+        <p>実行ファイル WinWwaWingmk.exe のあるディレクトリに WinWwamk.ini が配置されています。設定ファイルから作成ツールの設定を読み取ることができます。</p>
+        <p>詳しくは設定ファイルをご参照ください。</p>
+      </article>
     </section>
   </section>
-  <section>
+  <section class="main-section">
     <h2>よくある質問</h2>
-    <section>
-      <H3>よくある質問＆マニュアル補足事項</H3>
-      <p>作成ツールに関してのよくある質問や細かい補足事項、各種不具合などは、<A HREF="http://www.wwajp.com/wwafaq.html">公式サイトの「よくある質問」</A>にまとめて掲載しています。本マニュアルとあわせてご参照ください。</p>
-      <p>以下の項目は「よくある質問」に掲載しています。</p>
-      <ul>
-        <li>効果音や画像を編集するためのツールは？</li>
-        <li>複数のマップ間でアイテムなどのデータを共有するには？</li>
-        <li>GIF画像の読み込みに失敗する</li>
-        <li>ブラウザでマップを見る機能でゲームが起動しない</li>
-        <li>ホームページへの設置がうまくいかない</li>
-      </ul>
+    <section class="sub-section">
+      <h3>よくある質問＆マニュアル補足事項</h3>
+      <article>
+        <p>作成ツールに関してのよくある質問や細かい補足事項、各種不具合などは、<A HREF="http://www.wwajp.com/wwafaq.html">公式サイトの「よくある質問」</A>にまとめて掲載しています。本マニュアルとあわせてご参照ください。</p>
+        <p>以下の項目は「よくある質問」に掲載しています。</p>
+        <ul>
+          <li>効果音や画像を編集するためのツールは？</li>
+          <li>複数のマップ間でアイテムなどのデータを共有するには？</li>
+          <li>GIF画像の読み込みに失敗する</li>
+          <li>ブラウザでマップを見る機能でゲームが起動しない</li>
+          <li>ホームページへの設置がうまくいかない</li>
+        </ul>
+      </article>
     </section>
   </section>
-  <section>
-    <h2>連絡方法</h2>
-    <p>ゲーム内容に対する質問、不具合報告、ご意見、ご要望は、下記ページ設置のメールフォームからお願いいたします。</p>
-    <ul>
-      <li>（キャラバンサークル）<A HREF="http://www.wwajp.com/mail/mailform.html">連絡フォーム http://www.wwajp.com/mail/mailform.html</A></li>
-      <li>（WWA Wing）<A HREF="http://jbbs.shitaraba.net/netgame/14732/">WWA Wing総合掲示板 http://jbbs.shitaraba.net/netgame/14732/</A></li>
-    </ul>
-  </section>
-  <section>
-    <h2>転載、掲載、著作権などについて</h2>
-    <p>雑誌などへの掲載、転載は自由です。もちろん、ホームページへの組込みは自由です。</p>
-    <p>WWA Wing 作成ツールのソースコードは、MIT License で提供されています。</p>
-    <p>使用している画像はCreative Commons CC-BY 4.0 で提供されています。</p>
+  <section class="main-section">
+    <h2>その他</h2>
+    <section class="sub-section">
+      <h3>連絡方法</h3>
+      <article>
+        <p>ゲーム内容に対する質問、不具合報告、ご意見、ご要望は、下記ページ設置のメールフォームからお願いいたします。</p>
+        <ul>
+          <li>（キャラバンサークル）<A HREF="http://www.wwajp.com/mail/mailform.html">連絡フォーム http://www.wwajp.com/mail/mailform.html</A></li>
+          <li>（WWA Wing）<A HREF="http://jbbs.shitaraba.net/netgame/14732/">WWA Wing総合掲示板 http://jbbs.shitaraba.net/netgame/14732/</A></li>
+        </ul>
+      </article>
+    </section>
+    <section class="sub-section">
+      <h3>転載、掲載、著作権などについて</h3>
+      <article>
+        <p>雑誌などへの掲載、転載は自由です。もちろん、ホームページへの組込みは自由です。</p>
+        <p>WWA Wing 作成ツールのソースコードは、MIT License で提供されています。</p>
+        <p>使用している画像はCreative Commons CC-BY 4.0 で提供されています。</p>
+      </article>
+    </section>
   </section>
     
   <footer>
