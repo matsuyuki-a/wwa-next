@@ -354,6 +354,7 @@ export class UserDevice {
         var ua: string = window.navigator.userAgent;
         this.os = this._getOS(ua);
         this.browser = this.getBrowser(ua);
+        console.log("Your Browser: "+BROWSER_TYPE[this.browser]);
         this.device = this.getDevice();
     }
     private _getOS(ua: string): number{
